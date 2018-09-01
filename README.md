@@ -1,3 +1,3 @@
 # gaDjango
 Django Framework for GamesArena
-Test commit
+Test commit new
