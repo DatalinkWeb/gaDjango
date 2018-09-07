@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Ooops! Activation failed!{% endblock %}
+{% block content %}
+    <h1>Ooops! The activation process has failed!</h1>
+    <p>Please check if the activation link has expired (valid for 7 days). Try to register again or contact the site admin.</p>
+    {{activation_error}}
+{% endblock %}

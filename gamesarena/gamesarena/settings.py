@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_registration',
 ]
 
 MIDDLEWARE = [
@@ -52,10 +52,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'gamesarena.urls'
 
+# Note the DIRS inclusion for the base.html for the whole site
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR+'/gamesarena/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +120,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# We use a universal folder for the base css and html files. Also look above for the templates dirs
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, 'gamesarena/static'), 
+]
+
+# Set the activation days required for django-registration
+
+ACCOUNT_ACTIVATION_DAYS = 7 # One week activation window
+
+# The email backend. Set to console! Remember to change it in the production server
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
