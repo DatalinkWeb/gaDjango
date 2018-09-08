@@ -12,7 +12,9 @@ from django.views.generic.edit import FormView
 
 from . import signals
 from .exceptions import ActivationError
-from .forms import RegistrationForm
+#from .forms import RegistrationForm
+# Instead of the above form, we import and use the one below
+from .forms import RegistrationFormUniqueEmail
 
 
 class RegistrationView(FormView):
@@ -21,7 +23,8 @@ class RegistrationView(FormView):
 
     """
     disallowed_url = reverse_lazy('django_registration_disallowed')
-    form_class = RegistrationForm
+    #Instead of form_class = RegistrationForm we use the one that checks for the email already in use
+    form_class = RegistrationFormUniqueEmail
     success_url = None
     template_name = 'django_registration/registration_form.html'
 
