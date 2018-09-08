@@ -3,5 +3,5 @@
 {% block content %}
     <h1>Ooops! The activation process has failed!</h1>
     <p>Please check if the activation link has expired (valid for 7 days). Try to register again or contact the site admin.</p>
-    {{activation_error}}
+    <p>Error: {{activation_error.message}}</p>
 {% endblock %}
