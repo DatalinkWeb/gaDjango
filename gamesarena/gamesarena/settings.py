@@ -120,15 +120,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# We use a universal folder for the base css and html files. Also look above for the templates dirs
+# We use a universal folder for the base css and html files. Also look above for the templates dirs. In production run collectstatic
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'gamesarena/static'), 
 ]
 
 # Set the activation days required for django-registration
-
-ACCOUNT_ACTIVATION_DAYS = 7 # One week activation window
+ACCOUNT_ACTIVATION_DAYS = 2 # Two days activation window
 
 # The email backend. Set to console! Remember to change it in the production server
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# The login redirect url to check user authentication. It will be deleted to default back to /accounts/profile
+LOGIN_REDIRECT_URL = '/'
+
+# The logout redirect url is set to the home page
+LOGOUT_REDIRECT_URL = '/'

@@ -1,0 +1,6 @@
+Make the Profile app
+--------------------
+
+1. Extend the User model with the additional profile fields. Use the official documentation method (also add the additional fields to the admin site)
+2. Change the LOGIN_REDIRECT_URL to the default /accounts/profile/ by deleting the variable from the settings.py project file.
+3. The additional profile models/views/urls will be made as an additional app
